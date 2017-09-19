@@ -172,3 +172,74 @@ css中选择器
    2. 100px 50px:把图片调整到100px宽，50px高。
    3. cover:拉大图片，使其完全填满背景区，保持宽高比。
    4. contain:缩放图片，使其恰好适合背景区，保持宽高比。
+
+布局
+
+1. 三栏-固定宽度布局
+
+   ```html
+   <style>
+     #wrapper{width:960px;margin:0 auto;border:1px solid;}
+     nav{width:150px;background:#dcd9c0;}
+     nav li{list-style-type:none;}
+     article{width:600px;float:left;background:#ffed53;}
+     aside{width:210px;float:left;background:#3f7ccf;}
+     header{background:#foo;}
+     footer{text-align:center;clear:left;}
+   </style>
+   <body>
+     <div id="wrapper">
+       <header>a fiexd-width layout</header>
+   	<nav>
+         <ul>
+           <li>111</li>
+           <li>222</li>
+           <li>333</li>
+         </ul>	
+       </nav>
+       <article>some article</article>
+   	<aside>some aside</aside>
+       <footer>footer is here</footer>
+     </div>
+   </body>
+   ```
+
+   增加间距导致右边栏下移问题
+
+   ```css
+   /*增加padding,导致article总宽度变成640px,把aside挤到下面*/
+   article{width:600px;float:left;background:#ffed53;padding:10px 20px;}
+   ```
+
+   ​
+
+   1. 重宽度以抵消内边距和边框
+
+      ```css
+      article{width:560px;float:left;background:#ffed53;padding:10px 20px;}
+      ```
+
+   2. 给容器内部元素应用内边距和边框
+
+      ```html
+      <style>
+        article{width:600px;float:left;background:#ffed53;}
+        article .inner{padding:10px 20px;}
+      </style>
+      <article>
+        <div class="inner">some article</div>
+      </article>
+      ```
+
+   3. 使用`box-sizing:border-box`
+
+      ```css
+      nav{width:150px;background:#dcd9c0;}
+      nav li{list-style-type:none;}
+      article{width:600px;float:left;background:#ffed53;padding:10px 20px;box-sizing:border-box;}
+      aside{width:210px;float:left;background:#3f7ccf;}
+      ```
+
+      ​
+
+   ​
