@@ -25,5 +25,9 @@
   git push origin branchName//远端不存在对应分支
   ```
 
-  ​
+- 项目中存在子模块,有`.gitmodules`文件时更新代码
+
+  ```shell
+  git submodule update --init --recursive
+  ```
 
