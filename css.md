@@ -240,6 +240,73 @@ css中选择器
       aside{width:210px;float:left;background:#3f7ccf;}
       ```
 
-      ​
+2. 三栏-中栏流动布局
 
-   ​
+   ```html
+   <div id="main_wrapper">
+     <header>a fiexd-width layout</header>
+     <div id="threecolwrap">
+       <div id="twocolwrap">
+         <nav>
+           <ul>
+             <li>111</li>
+             <li>222</li>
+             <li>333</li>
+           </ul>
+         </nav>
+         <article>here is article</article>
+       </div>
+       <aside>here is aside</aside>
+     </div>
+     <footer>footer</footer>
+   </div>
+   ```
+
+   1. 使用负外边距实现
+
+      ```css
+      div#main_wrapper{min-width:600px;max-width:1100px;}
+      div#threecolwrap{float:left;width:100%;}
+      div#twocolwrap{float:left;width:100%;margin-right:-210px;}
+      nav{width:150px;float:left;}
+      article{width:auto;margin-left:15px;margin-right:210px;}
+      aside{width:210px;float:left;}
+      ```
+
+   2. 使用CSS3单元格实现
+
+      ```html
+      <style>
+        nav{
+          display: table-cell;
+          width:150px;
+          padding:10px;
+          background:#ded9c0;
+        }
+        na > li{list-style-type:none;}
+        article{
+          display: table-cell;
+          padding:10px 20px;
+          background: #ffed53;
+        }
+        aside{
+          display: table-cell;
+          width:210px;
+          padding:10px;
+          background: #3f7ccf;
+        }
+      </style>
+
+      <nav>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </nav>
+      <article>here is article</article>
+      <aside>here is aside</aside>
+      	
+      ```
+
+      ​
